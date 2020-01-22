@@ -18,7 +18,7 @@ function isActive (route) {
 
   return (
     <Menu stackable fluid id="menu" inverted>
-      <Container text>
+      <Container >
         <Link href="/">
           <Menu.Item header active={isActive('/')}>
             <Image
@@ -55,6 +55,24 @@ function isActive (route) {
               size="large"
             />
             Checklists
+          </Menu.Item>
+        </Link>
+        <Link href="/lasercuts">
+          <Menu.Item header active={isActive('/lasercuts')}>
+            <Icon
+              name="clipboard check"
+              size="large"
+            />
+            Laser Cuts
+          </Menu.Item>
+        </Link>
+        <Link href="/pricingsheets">
+          <Menu.Item header active={isActive('/pricingsheets')}>
+            <Icon
+              name="clipboard check"
+              size="large"
+            />
+            Pricing Sheets
           </Menu.Item>
         </Link>
         <Link href="/cart">
