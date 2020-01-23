@@ -66,8 +66,8 @@ function isActive (route) {
             Laser Cuts
           </Menu.Item>
         </Link>
-        <Link href="/pricingsheets">
-          <Menu.Item header active={isActive('/pricingsheets')}>
+        <Link href="/create">
+          <Menu.Item header active={isActive('/create')}>
             <Icon
               name="clipboard check"
               size="large"
