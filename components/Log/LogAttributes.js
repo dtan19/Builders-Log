@@ -4,7 +4,7 @@ import axios from 'axios';
 import baseUrl from '../../utils/baseUrl';
 import { useRouter } from 'next/router';
 
-function ProductAttributes({ description, _id, user }) {
+function LogAttributes({ description, _id, user, notes }) {
   const [modal, setModal] = React.useState(false);
   const router = useRouter();
   const isRoot = user && user.role === 'root';
@@ -13,27 +13,29 @@ function ProductAttributes({ description, _id, user }) {
 
 
   async function handleDelete() {
-    const url = `${baseUrl}/api/product`
+    const url = `${baseUrl}/api/log`
     const payload = { params: { _id } }
     await axios.delete(url, payload)
     router.push('/');
   }
 
   return <>
-    <Header as="h3">About this product:</Header>
+    <Header as="h3">Description:</Header>
     <p>{description}</p>
-    {isRootOrAdmin && (
+    <Header as="h4">Notes:</Header>
+    <p>{notes}</p>
+    {user && (
     <>
     <Button
       icon="trash alternate outline"
       color="red"
-      content="Delete Product"
+      content="Delete Log"
       onClick={() => setModal(true)}
     />
     <Modal open={modal} dimmer="blurring">
       <Modal.Header>Confirm Delete</Modal.Header>
       <Modal.Content>
-        <p>Are you sure you want to delete this product?</p>
+        <p>Are you sure you want to delete this log?</p>
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={() => setModal(false)}
@@ -52,4 +54,4 @@ function ProductAttributes({ description, _id, user }) {
   </>
 }
 
-export default ProductAttributes;
+export default LogAttributes;

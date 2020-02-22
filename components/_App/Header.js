@@ -1,15 +1,18 @@
-import {Menu, Container, Image, Icon} from "semantic-ui-react";
-import Link from "next/link";
-import Router, { useRouter } from "next/router";
-import nProgress from "nprogress";
+import {Menu, Container, Image, Icon} from 'semantic-ui-react';
+import Link from 'next/link';
+import Router, { useRouter } from 'next/router';
+import nProgress from 'nprogress';
+import { handleLogout } from '../../utils/auth';
 
 Router.onRouteChangeStart = () => nProgress.start()
 Router.onRouteChangeComplete = () => nProgress.done();
 Router.onRouteChangeError = () => nProgress.done();
 
-function Header() {
+function Header({ user }) {
   const router = useRouter();
-  const user = false;
+  const isRoot = user && user.role === 'root';
+  const isAdmin = user && user.role === 'admin';
+  const isRootOrAdmin = isRoot || isAdmin;
 
 function isActive (route) {
   return route === router.pathname;
@@ -26,7 +29,7 @@ function isActive (route) {
               src="/static/logo.svg"
               style={{ marginRight: '1em'}}
             />
-            ProtoDesk
+            Builder's Logbook
           </Menu.Item>
         </Link>
         <Link href="/airplanes">
@@ -57,24 +60,16 @@ function isActive (route) {
             Checklists
           </Menu.Item>
         </Link>
-        <Link href="/lasercuts">
-          <Menu.Item header active={isActive('/lasercuts')}>
+        <Link href="/createlog">
+          <Menu.Item header active={isActive('/createlog')}>
             <Icon
               name="clipboard check"
               size="large"
             />
-            Laser Cuts
+            Create Log
           </Menu.Item>
         </Link>
-        <Link href="/create">
-          <Menu.Item header active={isActive('/create')}>
-            <Icon
-              name="clipboard check"
-              size="large"
-            />
-            Pricing Sheets
-          </Menu.Item>
-        </Link>
+
         <Link href="/cart">
           <Menu.Item header active={isActive('/cart')}>
             <Icon
@@ -84,44 +79,53 @@ function isActive (route) {
             Cart
           </Menu.Item>
         </Link>
+        
+        {isRootOrAdmin && (
+        <Link href="/create">
+          <Menu.Item header active={isActive('/create')}>
+            <Icon
+              name="clipboard check"
+              size="large"
+            />
+            Create
+          </Menu.Item>
+        </Link>
+        )}
+
         {user ? (<>
         <Link href="/account">
           <Menu.Item header active={isActive('/account')}>
-            <Icon
-              name="user"
-              size="large"
-            />
-            My Builds
+            <Icon name="user" size="large" />
+            Account
           </Menu.Item>
         </Link>
-        <Link href="/signout">
-        <Menu.Item header active={isActive('/signout')}>
+
+        <Menu.Item onClick={handleLogout} header>
             <Icon
               name="sign out"
               size="large"
             />
             Sign Out
         </Menu.Item>
-        </Link>
         </>)
         :
         (<>
-        {user && (<Link href="/create">
+        <Link href="/login">
           <Menu.Item header>
             <Icon
               name="fork"
               size="large"
             />
-            Join
+            Login
           </Menu.Item>
-        </Link>)}
-        <Link href="/login">
+        </Link>
+        <Link href="/signup">
           <Menu.Item header>
             <Icon
               name="sign in"
               size="large"
             />
-            Sign In
+            Sign Up
           </Menu.Item>
         </Link>
         </>)}

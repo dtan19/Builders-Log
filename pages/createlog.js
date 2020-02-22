@@ -2,6 +2,7 @@ import React from 'react';
 import { 
   Form, 
   Input, 
+  Dropdown,
   TextArea, 
   Button, 
   Image, 
@@ -13,46 +14,77 @@ import {
  import baseUrl from '../utils/baseUrl';
  import catchErrors from '../utils/catchErrors';
 
- const INITIAL_PRODUCT = {
-    name: "",
-    price: "",
-    media: "",
+ const INITIAL_LOG = {
+    media: "",  
+    date: "",
+    hours: "",
     description: "",
+    notes: "",
  };
 
-function CreateProduct() {
-  const [product, setProduct] = React.useState(INITIAL_PRODUCT);
+ const logTypeOptions = [
+  {
+    key: 'Assembly',
+    text: 'Assembly',
+    value: 'Assembly',
+  }, 
+  {
+    key: 'Research',
+    text: 'Research',
+    value: 'Research',
+  },
+  {
+    key: 'Design',
+    text: 'Design',
+    value: 'Design',
+  },
+  {
+    key: 'Purchase',
+    text: 'Purchase',
+    value: 'Purchase',
+  },
+  {
+    key: 'Testing',
+    text: 'Testing',
+    value: 'Testing',
+  },
+ ]
+
+
+function CreateLog() {
+  const [log, setLog] = React.useState(INITIAL_LOG);
   const [mediaPreview, setMediaPreview] = React.useState('');
   const [success, setSuccess] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [disabled, setDisabled] = React.useState(true);
   const [error, setError] = React.useState('');
+  //const [logType, setLogType] = React.useState(true);
 
   React.useEffect(() => {
-    const isProduct = Object.values(product).every(el => Boolean(el))
-    isProduct ? setDisabled(false) : setDisabled(true);
-  }, [product]);
+    const isLog = Object.values(log).every(el => Boolean(el))
+    isLog ? setDisabled(false) : setDisabled(true);
+  }, [log]);
 
 
 function handleChange(event) {
   const { name, value, files } = event.target;
   if (name === "media") {
-    setProduct(prevState => ({ ...prevState, media: files[0] }
+    setLog(prevState => ({ ...prevState, media: files[0] }
     ));
     setMediaPreview(window.URL.createObjectURL(files[0]));
   } else {
-    setProduct(prevState => ({ ...prevState, [name]: value }))
-    ;
+    setLog(prevState => ({ ...prevState, [name]: value }));
   }
 }
 
 async function handleImageUpload() {
   const data = new FormData()
-  data.append('file', product.media)
+  data.append('file', log.media)
   data.append('upload_preset', 'builders-log')
   data.append('cloud_name', 'dtan19')
   const response = await axios.post(process.env.CLOUDINARY_URL, data);
   const mediaUrl = response.data.url;
+  console.log(mediaUrl);
   return mediaUrl;
 }
 
@@ -62,77 +94,108 @@ async function handleSubmit(event) {
     setLoading(true);
     setError('');
     const mediaUrl = await handleImageUpload();
-    const url = `${baseUrl}/api/product`
-    const { name, price, description } = product;
-    const payload = { name, price, description, mediaUrl }
+    const url = `${baseUrl}/api/log`
+    const { date, hours, description, notes } = log;
+    const payload = { mediaUrl, date, hours, description, notes }
     const response = await axios.post(url, payload);
     console.log({ response });
-    setProduct(INITIAL_PRODUCT);
+    setLog(INITIAL_LOG);
     setSuccess(true);
   } catch(error) {
-    catchErrors(error, setError)
+    catchErrors(error, setError);
+    console.log(error);
   } finally {
     setLoading(false);
   }
 
 }
 
+/*function handleLogType() {
+  if (INITIAL_LOG.type === "Purchase") {
+    setLogType(true);
+  } else {
+    console.log('Here is a message');
+  }
+}*/
+
+/*<Form.Field
+control={Dropdown}
+name="type"
+label="Log Type"
+type="text"
+placeholder="Log Type"
+options={logTypeOptions}
+onChange={handleChange}
+/>*/
+
+
   return (
     <>
       <Header as="h2" block>
-        <Icon name='add' color="orange" />
-        Create New Product
+        <Icon name='wrench' color="blue" />
+        Create New Log
       </Header>
       <Form loading={loading} error={Boolean(error)} success={success} onSubmit={handleSubmit} >
       <Message 
         error
-        header="Opps!"
+        header="Oops!"
         content={error}
         />
         <Message 
         success
         icon="check"
         header="Success"
-        content="Your product has been posted"
+        content="Your log has been posted"
         />
         <Form.Group widths="equal">
-          <Form.Field
-            control={Input}
-            name="name"
-            label="Name"
-            placeholder="Name"
-            value={product.name}
-            onChange={handleChange}
-          />
-          <Form.Field
-            control={Input}
-            name="price"
-            label="Price"
-            placeholder="0.00"
-            min="0.00"
-            step="0.01"
-            type="number"
-            value={product.price}
-            onChange={handleChange}
-          />
-          <Form.Field
+        <Form.Field
             control={Input}
             name="media"
             type="file"
-            label="Media"
+            label="Image"
             accept="image/*"
             content="Select Image"
             onChange={handleChange}
           />
         </Form.Group>
-        <Image src={mediaPreview} rounded centered size="small"
+        <Image src={mediaPreview} rounded centered 
         />
+        <Form.Group widths="equal">
+          <Form.Field
+            control={Input}
+            name="date"
+            label="Date"
+            type="date"
+            placeholder="Date"
+            value={log.date}
+            onChange={handleChange}
+          />
+          <Form.Field
+            control={Input}
+            name="hours"
+            label="Hours"
+            placeholder="0.00"
+            min="0.25"
+            step="0.25"
+            type="number"
+            value={log.hours}
+            onChange={handleChange}
+          />
+        </Form.Group>
         <Form.Field
           control={TextArea}
           name="description"
           label="Description"
           placeholder="Description"
-          value={product.description}
+          value={log.description}
+          onChange={handleChange}
+        />
+        <Form.Field
+          control={TextArea}
+          name="notes"
+          label="Notes"
+          placeholder="Notes"
+          value={log.notes}
           onChange={handleChange}
         />
         <Form.Field
@@ -148,4 +211,4 @@ async function handleSubmit(event) {
   )
 }
 
-export default CreateProduct;
+export default CreateLog;
