@@ -8,7 +8,10 @@
     "start": "next start",
     "build": "next build"
   },
-  "keywords": [],
+  "keywords": [
+    "example",
+    "heroku"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -29,5 +32,8 @@
     "stripe": "^7.15.0",
     "uuid": "^3.3.2",
     "validator": "^11.1.0"
+  },
+  "engines": {
+    "node": "10.15.3"
   }
 }
