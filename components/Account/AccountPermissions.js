@@ -69,7 +69,6 @@ function UserPermission({ user }) {
     const url = `${baseUrl}/api/account`;
     const payload = { _id: user._id, role: admin ? "admin" : "user"};
     const response = await axios.put(url, payload);
-    console.log
   }
 
   return (

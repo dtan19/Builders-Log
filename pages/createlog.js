@@ -84,7 +84,7 @@ async function handleImageUpload() {
   data.append('cloud_name', 'dtan19')
   const response = await axios.post(process.env.CLOUDINARY_URL, data);
   const mediaUrl = response.data.url;
-  console.log(mediaUrl);
+  //console.log(mediaUrl);
   return mediaUrl;
 }
 
@@ -98,7 +98,7 @@ async function handleSubmit(event) {
     const { date, hours, description, notes } = log;
     const payload = { mediaUrl, date, hours, description, notes }
     const response = await axios.post(url, payload);
-    console.log({ response });
+    //console.log({ response });
     setLog(INITIAL_LOG);
     setSuccess(true);
   } catch(error) {

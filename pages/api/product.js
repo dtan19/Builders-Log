@@ -50,12 +50,12 @@ async function handleDeleteRequest(req, res) {
     const { _id } = req.query;
     try {
     // 1) Delete a product by id
-    await Product.findOneAndDelete({ _id })
+    await Product.findOneAndDelete({ _id });
     // 2) Remove product from all carts, reference as 'product'
     await Cart.updateMany(
         { "products.product": _id },
         { $pull: { products: { product: _id } } }
-    )
+    );
     res.status(204).json({})
     } catch (error) {
         console.error(error)

@@ -57,7 +57,7 @@ async function handlePutRequest(req, res) {
         if (productExists) {
             await Cart.findOneAndUpdate(
                 { _id: cart._id, "products.product": productId },
-                { $inc: { "product.$.quantity": quantity }}
+                { $inc: { "products.$.quantity": quantity }}
             )
         } else {
             // if not, add new product with given quantity

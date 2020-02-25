@@ -66,7 +66,7 @@ async function handleSubmit(event) {
     const { name, price, description } = product;
     const payload = { name, price, description, mediaUrl }
     const response = await axios.post(url, payload);
-    console.log({ response });
+    //console.log({ response });
     setProduct(INITIAL_PRODUCT);
     setSuccess(true);
   } catch(error) {

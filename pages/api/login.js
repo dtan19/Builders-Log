@@ -5,7 +5,6 @@ import jwt from 'jsonwebtoken';
 
 
 connectDb;
-console.log("DB Connected");
 
 export default async (req, res) => {
     const { email, password } = req.body

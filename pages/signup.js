@@ -34,7 +34,6 @@ async function handleSubmit(event) {
   try {
     setLoading(true);
     setError('');
-    console.log(user);
     const url = `${baseUrl}/api/signup`
     const payload = { ...user }
     const response = await axios.post(url, payload)
