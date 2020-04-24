@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "next",
     "start": "next start",
-    "build": "next build"
+    "build": "next build",
+    "heroku-postbuild": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "example",
