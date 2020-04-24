@@ -5,10 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "next",
-    "start": "next start",
-    "build": "next build",
-    "heroku-postbuild": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "next start  -p $PORT",
+    "build": "next build"
   },
   "keywords": [
     "example",
@@ -41,6 +39,11 @@
   "engines": {
     "node": "10.15.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dtan19/Builders-Log.git"
+  },
+  "homepage": "https://github.com/dtan19/Builders-Log",
   "devDependencies": {
     "ts-loader": "^6.2.1",
     "typescript": "^3.8.3",
