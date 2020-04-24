@@ -1,8 +1,5 @@
-import Log from '../../models/Log'
+import Sheet from '../../models/Sheet'
 import connectDb from "../../utils/connectDb";
-import jwt from 'jsonwebtoken';
-import User from '../../models/User';
-
 
 connectDb();
 
@@ -25,38 +22,33 @@ export default async (req, res) => {
 
 async function handleGetRequest(req, res) {
     const { _id } = req.query
-    const log = await Log.findOne({ _id })
-    res.status(200).json(log)
+    const sheet = await Sheet.findOne({ _id })
+    res.status(200).json(sheet)
 }
 
 async function handlePostRequest(req, res) {
-    const { mediaUrl, user, date, hours, amount, logType, description, notes } = req.body
+    const { mediaUrl, name, columns, rows } = req.body
     try {
-        // 1) Verify and get user id from token
-        //const { userId } = jwt.verify(req.headers.authorization, process.env.JWT_SECRET)
-        if ( !date || !logType || !description ) {
-            return res.status(422).send("log missing one or more fields");
+        if ( !name || !columns || !rows || !mediaUrl ) {
+            return res.status(422).send("missing one or more fields");
         }
-        const log = await new Log({
-            user,
-            date,
-            hours,
-            amount,
-            logType,
-            description,
-            notes,
+        const sheet = await new Sheet({
+            name,
+            columns,
+            rows,
             mediaUrl
         }).save();
-        res.status(201).json(log);
+        res.status(201).json(sheet);
+        console.log(sheet);
     } catch(error) {
         console.error(error);
-        res.status(500).send("Server failed to create log.")
+        res.status(500).send("Server failed to create sheet.")
     }
 }
 
 async function handleDeleteRequest(req, res) {
     const { _id } = req.query
-    await Log.findOneAndDelete({ _id })
+    await Sheet.findOneAndDelete({ _id })
     res.status(204).json({})
 }
 //export default async (req, res) => {

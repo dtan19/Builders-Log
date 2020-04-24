@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const { ObjectId, Number } = mongoose.Schema.Types
+const { ObjectId, Number, String } = mongoose.Schema.Types
 
 const OrderSchema = new mongoose.Schema ({
     user: {
@@ -16,16 +16,39 @@ const OrderSchema = new mongoose.Schema ({
             product: {
                 type: ObjectId,
                 ref: "Product"
+            },
+            name: {
+                type: String,
+                ref: "Product"
             }
         }
     ],
+    name: {
+        type: String,
+        required: true
+    },
+    phone: {
+        type: Number,
+        required: true
+    },
     email: {
         type: String,
         required: true
     },
+    notes: {
+        type: String,
+    },
+    orderStatus: {
+        type: String,
+        required: true,
+        default: "Open"
+    },
     total: {
         type: Number,
         required: true
+    },
+    mediaUrl: {
+        type: String,
     }
 }, {
     timestamps: true

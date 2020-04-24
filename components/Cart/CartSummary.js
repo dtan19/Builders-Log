@@ -24,7 +24,7 @@ function CartSummary({ products, handleCheckout, success }) {
       amount={stripeAmount}
       image={products.length > 0 ? products[0].product.mediaUrl : ""}
       currency="USD"
-      shippingAddress={true}
+      shippingAddress={false}
       billingAddress={true}
       zipCode={true}
       stripeKey="pk_test_td9kjGw7RnHpkwvsXtzoL76900Zc0P9ulc"

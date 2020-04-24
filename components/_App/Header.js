@@ -32,44 +32,52 @@ function isActive (route) {
             Builder's Logbook
           </Menu.Item>
         </Link>
-        <Link href="/airplanes">
-          <Menu.Item header active={isActive('/airplanes')}>
+        <Link href="/orders">
+          <Menu.Item header active={isActive('/orders')}>
             <Icon
               name="plane"
               size="large"
       
             />
-            Airplanes
+            Orders
           </Menu.Item>
         </Link>
-        <Link href="/builders">
+        {user && (<Link href="/builders">
           <Menu.Item header active={isActive('/builders')}>
             <Icon
               name="wrench"
               size="large"
             />
-            Builders
+            Logs
           </Menu.Item>
-        </Link>
-        <Link href="/checklists">
-          <Menu.Item header active={isActive('/checklists')}>
-            <Icon
-              name="clipboard check"
-              size="large"
-            />
-            Checklists
-          </Menu.Item>
-        </Link>
+        </Link>)}
         <Link href="/createlog">
-          <Menu.Item header active={isActive('/createlog')}>
+        <Menu.Item header active={isActive('/createlog')}>
+          <Icon
+            name="clipboard check"
+            size="large"
+          />
+          Create Log
+        </Menu.Item>
+      </Link>
+      {user && (<Link href="/coins">
+          <Menu.Item header active={isActive('/coins')}>
             <Icon
               name="clipboard check"
               size="large"
             />
-            Create Log
+            Coins
+          </Menu.Item>
+        </Link>)}
+        <Link href="/createcoin">
+          <Menu.Item header active={isActive('/createcoin')}>
+            <Icon
+              name="clipboard check"
+              size="large"
+            />
+            Create Coin
           </Menu.Item>
         </Link>
-
         <Link href="/cart">
           <Menu.Item header active={isActive('/cart')}>
             <Icon
@@ -79,10 +87,9 @@ function isActive (route) {
             Cart
           </Menu.Item>
         </Link>
-        
         {isRootOrAdmin && (
-        <Link href="/create">
-          <Menu.Item header active={isActive('/create')}>
+        <Link href="/account">
+          <Menu.Item header active={isActive('/account')}>
             <Icon
               name="clipboard check"
               size="large"

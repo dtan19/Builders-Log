@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import LogList from '../components/Index/LogList';
 import baseUrl from '../utils/baseUrl';
+import { parseCookies } from 'nookies';
+import Router from 'next/router';
 
 function Builders({ logs }) {
   return <LogList logs={logs} />

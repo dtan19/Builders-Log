@@ -28,7 +28,7 @@ async function handleGetRequest(req, res) {
 }
 
 async function handlePostRequest(req, res) {
-    const { name, price, description, mediaUrl } = req.body
+    const { name, price, sku, description, mediaUrl } = req.body
     try {
         if (!name || !price || !description || !mediaUrl) {
             return res.status(422).send("Product missing one or more fields");
@@ -36,6 +36,7 @@ async function handlePostRequest(req, res) {
         const product = await new Product({
             name,
             price,
+            sku,
             description,
             mediaUrl
         }).save();

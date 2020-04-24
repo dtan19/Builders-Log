@@ -48,7 +48,10 @@ export default async (req, res) => {
         // 7) Add order data to database
         await new Order({
             user: userId,
+            name: paymentData.name,
+            phone: paymentData.phone,
             email: paymentData.email,
+            orderStatus: paymentData.orderStatus,
             total: cartTotal,
             products: cart.products
         }).save()

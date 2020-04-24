@@ -10,8 +10,8 @@ import {
   Icon
  } from 'semantic-ui-react';
  import axios from 'axios';
- import baseUrl from '../utils/baseUrl';
- import catchErrors from '../utils/catchErrors';
+ import baseUrl from '../../utils/baseUrl';
+ import catchErrors from '../../utils/catchErrors';
 
  const INITIAL_PRODUCT = {
     name: "",
@@ -63,8 +63,8 @@ async function handleSubmit(event) {
     setError('');
     const mediaUrl = await handleImageUpload();
     const url = `${baseUrl}/api/product`
-    const { name, price, description } = product;
-    const payload = { name, price, description, mediaUrl }
+    const { name, price, sku, description } = product;
+    const payload = { name, price, sku, description, mediaUrl }
     const response = await axios.post(url, payload);
     //console.log({ response });
     setProduct(INITIAL_PRODUCT);
@@ -86,7 +86,7 @@ async function handleSubmit(event) {
       <Form loading={loading} error={Boolean(error)} success={success} onSubmit={handleSubmit} >
       <Message 
         error
-        header="Opps!"
+        header="Oops!"
         content={error}
         />
         <Message 

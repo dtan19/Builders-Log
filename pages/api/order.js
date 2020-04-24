@@ -1,4 +1,4 @@
-import Log from '../../models/Log'
+import Order from '../../models/Order'
 import connectDb from "../../utils/connectDb";
 import jwt from 'jsonwebtoken';
 import User from '../../models/User';
@@ -25,38 +25,37 @@ export default async (req, res) => {
 
 async function handleGetRequest(req, res) {
     const { _id } = req.query
-    const log = await Log.findOne({ _id })
-    res.status(200).json(log)
+    const order = await Order.findOne({ _id })
+    res.status(200).json(order)
 }
 
 async function handlePostRequest(req, res) {
-    const { mediaUrl, user, date, hours, amount, logType, description, notes } = req.body
+    const { mediaUrl, name, phone, email, notes, orderStatus, total } = req.body
     try {
         // 1) Verify and get user id from token
         //const { userId } = jwt.verify(req.headers.authorization, process.env.JWT_SECRET)
-        if ( !date || !logType || !description ) {
-            return res.status(422).send("log missing one or more fields");
+        if ( !name || !phone || !email || !orderStatus || !total ) {
+            return res.status(422).send("order missing one or more fields");
         }
-        const log = await new Log({
-            user,
-            date,
-            hours,
-            amount,
-            logType,
-            description,
+        const order = await new Order({
+            name,
+            phone,
+            email,
             notes,
+            orderStatus,
+            total,
             mediaUrl
         }).save();
-        res.status(201).json(log);
+        res.status(201).json(order);
     } catch(error) {
         console.error(error);
-        res.status(500).send("Server failed to create log.")
+        res.status(500).send("Server failed to create order.")
     }
 }
 
 async function handleDeleteRequest(req, res) {
     const { _id } = req.query
-    await Log.findOneAndDelete({ _id })
+    await Order.findOneAndDelete({ _id })
     res.status(204).json({})
 }
 //export default async (req, res) => {

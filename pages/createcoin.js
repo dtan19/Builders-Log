@@ -1,78 +1,81 @@
-import React from 'react';
-//import { CsvToHtmlTable } from 'react-csv-to-table';
+import React, { useState } from 'react';
 import { 
   Form,
   Item, 
   Input, 
-  TextArea, 
+  TextArea,
+  Dropdown,
   Button, 
   Image, 
   Message, 
-  Header,
-  Embed, 
-  Icon,
-  Container
+  Header, 
+  Icon
  } from 'semantic-ui-react';
  import axios from 'axios';
  import baseUrl from '../utils/baseUrl';
  import catchErrors from '../utils/catchErrors';
  import Router from 'next/router';
- import AddProductToCart from '../components/Product/AddProductToCart';
-
- const vidStyle = {
-  paddingTop: '20px',
-  marginBottom: '60px',
-  background: '#777777',
-};
-
-const conStyle = {
-  paddingTop: '20px',
-  marginBottom: '20px',
-  width: '100%',
-  height: '50px',
-  border: '1px solid #999',
-  borderRadius: '5px',
-  marginBottom: '60px',
-};
 
 
- const INITIAL_TABLE = {
-    name: "",
-    columns: "",
-    rows: "",
+ const INITIAL_COIN = {
+    year: "",
+    mint: "",
+    era: "",
+    grade: "",
+    index: "",
     media: "",
  };
 
+ const eraOptions = [
+  {
+    key: "30's",
+    text: "30's",
+    value: "30's",
+  }, 
+  {
+    key: "40's",
+    text: "40's",
+    value: "40's",
+  },
+ ];
 
-function CreateSheet( _id, user ) {
-  const [table, setTable] = React.useState(INITIAL_TABLE);
-  const [mediaPreview, setMediaPreview] = React.useState('');
-  const [success, setSuccess] = React.useState(false);
-  const [loading, setLoading] = React.useState(false);
-  const [disabled, setDisabled] = React.useState(true);
-  const [error, setError] = React.useState('');
+ const eraSelection = "50's"
+
+
+function CreateCoin( _id, user ) {
+  const [record, setRecord] = useState(INITIAL_COIN);
+  const [mediaPreview, setMediaPreview] = useState('');
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(true);
+  const [error, setError] = useState('');
+
 
   React.useEffect(() => {
-    const isTable = Object.values(table).every(el => Boolean(el))
-    isTable ? setDisabled(false) : setDisabled(true);
-  }, [table]);
+    const isCoin = Object.values(record).every(el => Boolean(el));
+    isCoin ? setDisabled(false) : setDisabled(true);
+  }, [record]);
 
 
 function handleChange(event) {
   const { name, value, files } = event.target;
   if (name === "media") {
-    setTable(prevState => ({ ...prevState, media: files[0] }
+    setRecord(prevState => ({ ...prevState, media: files[0] }
     ));
     setMediaPreview(window.URL.createObjectURL(files[0]));
   } else {
-    setTable(prevState => ({ ...prevState, [name]: value }))
-    ;
+    setRecord(prevState => ({ ...prevState, [name]: value }));
   }
+}
+
+function handleSelect(event, data) {
+  INITIAL_COIN.era = data.value;
+  console.log(INITIAL_COIN.era);
 }
 
 async function handleImageUpload() {
   const data = new FormData()
-  data.append('file', table.media)
+  data.append('file', record.media)
   data.append('upload_preset', 'builders-log')
   data.append('cloud_name', 'dtan19')
   const response = await axios.post(process.env.CLOUDINARY_URL, data);
@@ -86,15 +89,15 @@ async function handleSubmit(event) {
     setLoading(true);
     setError('');
     const mediaUrl = await handleImageUpload();
-    const url = `${baseUrl}/api/sheet`
-    const { name, columns, rows, } = table;
-    const payload = { name, columns, rows, mediaUrl }
+    const url = `${baseUrl}/api/coin`
+    const { year, mint, era, grade, index, } = record;
+    const payload = { mediaUrl, year, mint, era, grade, index }
     const response = await axios.post(url, payload);
     //console.log({ response });
-    setTable(INITIAL_TABLE);
+    setRecord(INITIAL_COIN);
     setSuccess(true);
-    const sheetId = response.data._id;
-    Router.push(`/sheet?_id=${sheetId}`)
+    const coinId = response.data._id;
+    Router.push(`/coin?_id=${coinId}`)
   } catch(error) {
     catchErrors(error, setError)
   } finally {
@@ -107,7 +110,7 @@ async function handleSubmit(event) {
     <>
       <Header as="h2" block>
         <Icon name='add' color="orange" />
-        Create New Pricing Sheet
+        Create a Coin Record
       </Header>
       <Form loading={loading} error={Boolean(error)} success={success} onSubmit={handleSubmit} >
       <Message 
@@ -119,7 +122,7 @@ async function handleSubmit(event) {
         success
         icon="check"
         header="Success"
-        content="Your sheet has been created"
+        content="Your coin has been created"
         />
         <Form.Group widths="equal">
           <Form.Field
@@ -130,43 +133,57 @@ async function handleSubmit(event) {
             //accept="image/*"
             content="Select Image"
             onChange={handleChange}
+            required
           />
         </Form.Group>
-        <Image src={mediaPreview} rounded centered size="small"
-        />
+        <Image src={mediaPreview} rounded centered size="small"/>
         <Form.Group>
-          <p>Create your own pricing sheet:</p>
+          <p>Create your own coin record:</p>
         </Form.Group>
         <Form.Group widths="equal">
           <Form.Field
             control={Input}
-            name="name"
-            label="Sheet Name"
+            name="year"
+            label="Year"
+            placeholder="1961"
+            value={record.year}
             onChange={handleChange}
+            required
+          />
+          <Form.Field
+            control={Input}
+            name="index"
+            label="Index"
+            placeholder="1"
+            value={record.index}
+            onChange={handleChange}
+            required
           />
         </Form.Group>
         <Form.Group widths="equal">
           <Form.Field
             control={Input}
-            name="columns"
-            label="Number of Columns"
-            placeholder="1"
-            min="1"
-            step="1"
-            type="number"
-            value={table.columns}
+            name="mint"
+            label="Mint"
+            placeholder="D"
+            value={record.mint}
             onChange={handleChange}
           />
           <Form.Field
             control={Input}
-            name="rows"
-            label="Number of Rows"
-            placeholder="1"
-            min="1"
-            step="1"
-            type="number"
-            value={table.rows}
+            name="grade"
+            label="Grade"
+            placeholder="MS66"
+            value={record.grade}
             onChange={handleChange}
+          />
+          <Form.Dropdown
+            selection
+            name="era"
+            label="Era"
+            placeholder="Please select Era"
+            options={eraOptions}
+            onChange={handleSelect}
           />
         </Form.Group>
         <Form.Field
@@ -176,18 +193,11 @@ async function handleSubmit(event) {
           content="Create"
           type="Submit"
         />
-        <Item.Extra>
-          <AddProductToCart user={user} productId={_id} />
-        </Item.Extra>
       </Form>
-  <h3>Here is a container:</h3>
-  <Container style={conStyle}>
-    
-  </Container>
-  </>
+    </>
   )
 }
 
-export default CreateSheet;
+export default CreateCoin;
 
 

@@ -1,16 +1,16 @@
 import { Item, Label } from 'semantic-ui-react';
 
-function LogSummary({  date, mediaUrl, _id, description, notes }) {
+function OrderSummary({  email, mediaUrl, _id, name, total }) {
   return (
     <Item.Group>
         <Item>
           <Item.Image size="medium" src={mediaUrl}/>
           <Item.Content>
-            <Item.Header>{description}</Item.Header>
+            <Item.Header>{email}</Item.Header>
             <Item.Description>
               <p>Here is a subtitle.</p>
-              <p>{notes}</p>
-              <Label>Date: {date}</Label>
+              <p>{total}</p>
+              <Label>Customer Name: {name}</Label>
             </Item.Description>
             <Item.Extra>
             </Item.Extra>
@@ -20,4 +20,4 @@ function LogSummary({  date, mediaUrl, _id, description, notes }) {
   )
 }
 
-export default LogSummary;
+export default OrderSummary;

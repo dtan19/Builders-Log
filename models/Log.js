@@ -1,8 +1,12 @@
 import  mongoose  from 'mongoose';
 
-const { String } = mongoose.Schema.Types;
+const { ObjectId, String, Number } = mongoose.Schema.Types;
 
 const LogSchema = new mongoose.Schema({
+    user: {
+        type: ObjectId,
+        ref: "User"
+    },
     mediaUrl: {
         type: String,
     },
@@ -13,6 +17,13 @@ const LogSchema = new mongoose.Schema({
     hours: {
         type: Number,
     },
+    amount: {
+        type: Number,
+    },
+    logType: {
+        type: String,
+        required: true
+    },
     description: {
         type: String,
         required: true
@@ -20,6 +31,8 @@ const LogSchema = new mongoose.Schema({
     notes: {
         type: String,
     }
+}, {
+    timestamps: true
 });
 
 export default mongoose.models.Log || mongoose.model("Log", LogSchema)
