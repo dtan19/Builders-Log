@@ -2,7 +2,7 @@
   "name": "Builders-Log",
   "version": "1.0.0",
   "description": "A site for people to log their aircraft build",
-  "main": "./pages/index.js",
+  "main": "./index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",
