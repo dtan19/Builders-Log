@@ -27,7 +27,6 @@
     "nookies": "^2.0.8",
     "nprogress": "^0.2.0",
     "react": "^16.13.0",
-    "react-csv-to-table": "0.0.4",
     "react-dom": "^16.13.0",
     "react-stripe-checkout": "^2.6.3",
     "react-table": "^7.0.0",
