@@ -1,0 +1,1 @@
+{"ast":null,"code":"function formatDate(date) {\n  return new Date(date).toLocaleDateString('en-US');\n}\n\nexport default formatDate;","map":null,"metadata":{},"sourceType":"module"}

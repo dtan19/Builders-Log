@@ -1,0 +1,1 @@
+{"code":"(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{nAB0:function(n,e,t){\"use strict\";t.r(e);var a=t(\"q1tI\"),i=t.n(a),r=i.a.createElement;e.default=function(){return r(i.a.Fragment,null,\"Airplanes\")}},nmeA:function(n,e,t){(window.__NEXT_P=window.__NEXT_P||[]).push([\"/airplanes\",function(){return t(\"nAB0\")}])}},[[\"nmeA\",1,0]]]);"}

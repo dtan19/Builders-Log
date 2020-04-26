@@ -1,0 +1,1 @@
+{"ast":null,"code":"// import logs from '../../static/logs.json'\nimport Log from '../../models/Log';\nimport connectDb from '../../utils/connectDb';\nconnectDb();\nexport default (async (req, res) => {\n  const logs = await Log.find();\n  res.status(200).json(logs);\n});","map":null,"metadata":{},"sourceType":"module"}

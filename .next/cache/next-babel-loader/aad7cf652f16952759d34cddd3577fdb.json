@@ -1,0 +1,1 @@
+{"ast":null,"code":"// import products from '../../static/products.json'\nimport Product from '../../models/Product';\nimport connectDb from '../../utils/connectDb';\nconnectDb();\nexport default (async (req, res) => {\n  const products = await Product.find();\n  res.status(200).json(products);\n});","map":null,"metadata":{},"sourceType":"module"}

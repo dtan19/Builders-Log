@@ -1,0 +1,1 @@
+{"ast":null,"code":"// import logs from '../../static/logs.json'\nimport Sheet from '../../models/Sheet';\nimport connectDb from '../../utils/connectDb';\nconnectDb();\nexport default (async (req, res) => {\n  const sheets = await Sheet.find();\n  res.status(200).json(sheets);\n});","map":null,"metadata":{},"sourceType":"module"}

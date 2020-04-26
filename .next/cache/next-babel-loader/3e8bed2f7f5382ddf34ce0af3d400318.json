@@ -1,0 +1,1 @@
+{"ast":null,"code":"const baseUrl = true ? 'https://builders-log.herokuapp.com' : 'http://localhost:3000';\nexport default baseUrl;","map":null,"metadata":{},"sourceType":"module"}

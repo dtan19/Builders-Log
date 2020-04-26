@@ -1,0 +1,1 @@
+{"ast":null,"code":"import Coin from '../../models/Coin';\nimport connectDb from '../../utils/connectDb';\nconnectDb();\nexport default (async (req, res) => {\n  const coins = await Coin.find();\n  res.status(200).json(coins);\n});","map":null,"metadata":{},"sourceType":"module"}

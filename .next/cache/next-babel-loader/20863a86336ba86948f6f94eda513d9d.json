@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nimport { Label } from 'semantic-ui-react';\n\nfunction AccountUser(_ref) {\n  var _id = _ref._id;\n  return __jsx(Label, {\n    as: \"a\"\n  }, _id);\n}\n\nexport default AccountUser;","map":null,"metadata":{},"sourceType":"module"}
