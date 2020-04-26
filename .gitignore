@@ -1,5 +1,7 @@
 node_modules
+.next
 
 dist
 next.config.*
 now.jsonnode_modules/
+.next/
