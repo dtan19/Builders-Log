@@ -43,7 +43,7 @@
     "type": "git",
     "url": "git+https://github.com/dtan19/Builders-Log.git"
   },
-  "homepage": "https://builders-log.herokuapp.com/",
+  "homepage": "https://builders-log-cpzncf1dp.now.sh",
   "devDependencies": {
     "ts-loader": "^6.2.1",
     "typescript": "^3.8.3",
