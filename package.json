@@ -7,7 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start  -p $PORT",
-    "heroku-postbuild": "npm run build && npm run start"
+    "heroku-postbuild": "next build && npm run start"
   },
   "keywords": [
     "example",
