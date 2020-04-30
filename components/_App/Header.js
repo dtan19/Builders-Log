@@ -32,12 +32,20 @@ function isActive (route) {
             Builder's Logbook
           </Menu.Item>
         </Link>
+        <Link href="/homepage">
+          <Menu.Item header active={isActive('/homepage')}>
+            <Image
+              name="home"
+              size="mini"
+            />
+            Home
+          </Menu.Item>
+        </Link>
         <Link href="/orders">
           <Menu.Item header active={isActive('/orders')}>
             <Icon
               name="plane"
               size="large"
-      
             />
             Orders
           </Menu.Item>

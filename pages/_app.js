@@ -1,5 +1,6 @@
 import App from "next/app";
 import Layout from "../components/_App/Layout";
+import LandingLayout from "../components/_App/LandingLayout";
 import { parseCookies, destroyCookie } from 'nookies';
 import { redirectUser } from '../utils/auth';
 import baseUrl from '../utils/baseUrl';
@@ -58,7 +59,16 @@ syncLogout = event => {
 }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, router } = this.props;
+
+    if (router.pathname.startsWith('/homepage')) {
+      return (
+          <LandingLayout {...pageProps}>
+            <Component {...pageProps}></Component>
+          </LandingLayout>
+      )
+    }
+
     return (
     <Layout {...pageProps}>
       <Component {...pageProps} />

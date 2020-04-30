@@ -355,7 +355,7 @@ function Header({
     },
     __self: this
   }), "Builder's Logbook")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    href: "/orders",
+    href: "/homepage",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 35
@@ -363,10 +363,33 @@ function Header({
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Menu"].Item, {
     header: true,
-    active: isActive('/orders'),
+    active: isActive('/homepage'),
     __source: {
       fileName: _jsxFileName,
       lineNumber: 36
+    },
+    __self: this
+  }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Image"], {
+    name: "home",
+    size: "mini",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: this
+  }), "Home")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    href: "/orders",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: this
+  }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Menu"].Item, {
+    header: true,
+    active: isActive('/orders'),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
@@ -374,14 +397,14 @@ function Header({
     size: "large",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 46
     },
     __self: this
   }), "Orders")), user && __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
     href: "/builders",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 53
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Menu"].Item, {
@@ -389,7 +412,7 @@ function Header({
     active: isActive('/builders'),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 54
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
@@ -397,14 +420,14 @@ function Header({
     size: "large",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 55
     },
     __self: this
   }), "Logs")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
     href: "/createlog",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 62
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Menu"].Item, {
@@ -412,7 +435,7 @@ function Header({
     active: isActive('/createlog'),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 63
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
@@ -420,14 +443,14 @@ function Header({
     size: "large",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 64
     },
     __self: this
   }), "Create Log")), user && __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
     href: "/coins",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 71
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Menu"].Item, {
@@ -435,7 +458,7 @@ function Header({
     active: isActive('/coins'),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 72
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
@@ -443,14 +466,14 @@ function Header({
     size: "large",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 73
     },
     __self: this
   }), "Coins")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
     href: "/createcoin",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 80
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Menu"].Item, {
@@ -458,7 +481,7 @@ function Header({
     active: isActive('/createcoin'),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73
+      lineNumber: 81
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
@@ -466,14 +489,14 @@ function Header({
     size: "large",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74
+      lineNumber: 82
     },
     __self: this
   }), "Create Coin")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
     href: "/cart",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81
+      lineNumber: 89
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Menu"].Item, {
@@ -481,7 +504,7 @@ function Header({
     active: isActive('/cart'),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 90
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
@@ -489,14 +512,14 @@ function Header({
     size: "large",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83
+      lineNumber: 91
     },
     __self: this
   }), "Cart")), isRootOrAdmin && __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
     href: "/account",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91
+      lineNumber: 99
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Menu"].Item, {
@@ -504,7 +527,7 @@ function Header({
     active: isActive('/account'),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92
+      lineNumber: 100
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
@@ -512,14 +535,14 @@ function Header({
     size: "large",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93
+      lineNumber: 101
     },
     __self: this
   }), "Create")), user ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
     href: "/account",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103
+      lineNumber: 111
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Menu"].Item, {
@@ -527,7 +550,7 @@ function Header({
     active: isActive('/account'),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 104
+      lineNumber: 112
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
@@ -535,7 +558,7 @@ function Header({
     size: "large",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 105
+      lineNumber: 113
     },
     __self: this
   }), "Account")), __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Menu"].Item, {
@@ -543,7 +566,7 @@ function Header({
     header: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110
+      lineNumber: 118
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
@@ -551,21 +574,21 @@ function Header({
     size: "large",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111
+      lineNumber: 119
     },
     __self: this
   }), "Sign Out")) : __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
     href: "/login",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 120
+      lineNumber: 128
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Menu"].Item, {
     header: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121
+      lineNumber: 129
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
@@ -573,21 +596,21 @@ function Header({
     size: "large",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122
+      lineNumber: 130
     },
     __self: this
   }), "Login")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
     href: "/signup",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129
+      lineNumber: 137
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Menu"].Item, {
     header: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 130
+      lineNumber: 138
     },
     __self: this
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
@@ -595,13 +618,100 @@ function Header({
     size: "large",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131
+      lineNumber: 139
     },
     __self: this
   }), "Sign Up")))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
+
+/***/ }),
+
+/***/ "./components/_App/LandingLayout.js":
+/*!******************************************!*\
+  !*** ./components/_App/LandingLayout.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! semantic-ui-react */ "semantic-ui-react");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Header */ "./components/_App/Header.js");
+/* harmony import */ var _HeadContent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./HeadContent */ "./components/_App/HeadContent.js");
+var _jsxFileName = "/Users/david/Dev/myapps/Builders-Log/components/_App/LandingLayout.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+function LandingLayout({
+  children,
+  user
+}) {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }, __jsx(_HeadContent__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }), __jsx("link", {
+    rel: "stylesheet",
+    type: "text/css",
+    href: "/static/styles.css",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    },
+    __self: this
+  }), __jsx("link", {
+    rel: "stylesheet",
+    type: "text/css",
+    href: "/static/nprogress.css",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: this
+  }), __jsx("link", {
+    rel: "stylesheet",
+    href: "//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: this
+  }), __jsx("title", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: this
+  }, "Test Log")), __jsx("div", {
+    text: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: this
+  }, children));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (LandingLayout);
 
 /***/ }),
 
@@ -2563,14 +2673,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_App_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/_App/Layout */ "./components/_App/Layout.js");
-/* harmony import */ var nookies__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! nookies */ "nookies");
-/* harmony import */ var nookies__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(nookies__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _utils_auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/auth */ "./utils/auth.js");
-/* harmony import */ var _utils_baseUrl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/baseUrl */ "./utils/baseUrl.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "axios");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _components_App_LandingLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/_App/LandingLayout */ "./components/_App/LandingLayout.js");
+/* harmony import */ var nookies__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! nookies */ "nookies");
+/* harmony import */ var nookies__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(nookies__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _utils_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/auth */ "./utils/auth.js");
+/* harmony import */ var _utils_baseUrl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/baseUrl */ "./utils/baseUrl.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_8__);
 var _jsxFileName = "/Users/david/Dev/myapps/Builders-Log/pages/_app.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -2587,13 +2698,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
   constructor(...args) {
     super(...args);
 
     _defineProperty(this, "syncLogout", event => {
       if (event.key === 'logout') {
-        next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push('/login');
+        next_router__WEBPACK_IMPORTED_MODULE_8___default.a.push('/login');
       }
     });
   }
@@ -2604,7 +2716,7 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
   }) {
     const {
       token
-    } = Object(nookies__WEBPACK_IMPORTED_MODULE_3__["parseCookies"])(ctx);
+    } = Object(nookies__WEBPACK_IMPORTED_MODULE_4__["parseCookies"])(ctx);
     let pageProps = {};
 
     if (Component.getInitialProps) {
@@ -2615,7 +2727,7 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
       const isProtectedRoute = ctx.pathname === '/account' || ctx.pathname === '/create';
 
       if (isProtectedRoute) {
-        Object(_utils_auth__WEBPACK_IMPORTED_MODULE_4__["redirectUser"])(ctx, '/login');
+        Object(_utils_auth__WEBPACK_IMPORTED_MODULE_5__["redirectUser"])(ctx, '/login');
       }
     } else {
       try {
@@ -2624,8 +2736,8 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
             Authorization: token
           }
         };
-        const url = `${_utils_baseUrl__WEBPACK_IMPORTED_MODULE_5__["default"]}/api/account`;
-        const response = await axios__WEBPACK_IMPORTED_MODULE_6___default.a.get(url, payload);
+        const url = `${_utils_baseUrl__WEBPACK_IMPORTED_MODULE_6__["default"]}/api/account`;
+        const response = await axios__WEBPACK_IMPORTED_MODULE_7___default.a.get(url, payload);
         const user = response.data;
         const isRoot = user.role === 'root';
         const isAdmin = user.role === 'admin'; // If authenticated, but not of role admin, or root, we want to redirect from '/create' page.
@@ -2633,16 +2745,16 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
         const isNotPermitted = !(isRoot || isAdmin) && ctx.pathname === '/create';
 
         if (isNotPermitted) {
-          Object(_utils_auth__WEBPACK_IMPORTED_MODULE_4__["redirectUser"])(ctx, '/');
+          Object(_utils_auth__WEBPACK_IMPORTED_MODULE_5__["redirectUser"])(ctx, '/');
         }
 
         pageProps.user = user;
       } catch (error) {
         console.error("Error getting current user.", error); // Throw out invalid token
 
-        Object(nookies__WEBPACK_IMPORTED_MODULE_3__["destroyCookie"])(ctx, "token"); // Redirect to login page
+        Object(nookies__WEBPACK_IMPORTED_MODULE_4__["destroyCookie"])(ctx, "token"); // Redirect to login page
 
-        Object(_utils_auth__WEBPACK_IMPORTED_MODULE_4__["redirectUser"])(ctx, "/login");
+        Object(_utils_auth__WEBPACK_IMPORTED_MODULE_5__["redirectUser"])(ctx, "/login");
       }
     }
 
@@ -2658,18 +2770,36 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
   render() {
     const {
       Component,
-      pageProps
+      pageProps,
+      router
     } = this.props;
+
+    if (router.pathname.startsWith('/homepage')) {
+      return __jsx(_components_App_LandingLayout__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, pageProps, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 66
+        },
+        __self: this
+      }), __jsx(Component, _extends({}, pageProps, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 67
+        },
+        __self: this
+      })));
+    }
+
     return __jsx(_components_App_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63
+        lineNumber: 73
       },
       __self: this
     }), __jsx(Component, _extends({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 64
+        lineNumber: 74
       },
       __self: this
     })));
